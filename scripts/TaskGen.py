@@ -47,11 +47,22 @@ class TaskGenerator:
 
     def create_docs(self, title='A task', author='', date=None):
         print('Generating documents...')
-        doc_task = Document(documentclass='article', document_options=['a4paper', '10pt'], inputenc='utf8')
+        doc_task = Document(documentclass='article', document_options=['a4paper', '11pt'], inputenc='utf8')
         doc_task.packages.append(Package('inputenc', options=['utf8']))
         doc_task.packages.append(Package('babel', options=['english', 'russian']))
+        doc_task.packages.append(Package('mathtext'))
         doc_task.packages.append(Package('geometry', options=['a4paper', 'margin=1.5truecm',
-                                                              'top=1.3truecm', 'bottom=1.0truecm']))
+                                                                'top=1.3truecm', 'bottom=1.0truecm']))
+        doc_task.packages.append(Package('amsmath'))
+        doc_task.packages.append(Package('amsthm'))
+        doc_task.packages.append(Package('amsfonts'))
+        doc_task.packages.append(Package('mathabx'))
+
+        doc_task.preamble.append(Command('theoremstyle', 'definition'))
+        #doc_task.append(NoEscape(r'\theoremstyle{definition}'))
+        #doc_task.preamble.append(Command('newtheorem', arguments=r'\hspace{-25pt}\fbox{\phantom{123}} Задача', options='Ex'))
+        doc_task.preamble.append(NoEscape(r'\newtheorem{Ex}{\hspace{-25pt}\fbox{\phantom{123}} Задача}'))
+
         doc_task.preamble.append(Command('title', title))
         doc_task.preamble.append(Command('author', author))
         doc_task.preamble.append(Command('date', date))
@@ -134,7 +145,7 @@ class TaskGenerator:
 
         doc_task.generate_pdf(f'{path}\\{date}_{title}_{author}_task', clean_tex=False, clean=True)
         doc_answer.generate_pdf(f'{path}\\{date}_{title}_{author}_answers', clean_tex=False, clean=True)
-        print(f'Generation complete! You can find your task at the "{path}"')
+        print(f'Generation complete! You can find your task at "{path}"')
 
 
 def add_problem_to_task(doc_task, doc_answer, problem, show_solutions=False):
@@ -154,16 +165,19 @@ def add_problem_to_task(doc_task, doc_answer, problem, show_solutions=False):
     hint_file = open(path + r'\hint.txt', 'r')
     hint = hint_file.read()
 
-    with doc_task.create(Section('')):
-        doc_task.append(NoEscape((text)))
-        doc_task.append('')
-        doc_task.append(NoEscape(r'\iffalse'))
-        doc_task.append(f'Автор: {problem["author"]}')
-        doc_task.append(f'Дата: {problem["date"]}')
-        doc_task.append(f'Название: {problem["name"]}')
-        doc_task.append(r'Подсказка: \\')
-        doc_task.append(NoEscape(hint))
-        doc_task.append(NoEscape(r'\fi'))
+    doc_task.append(NoEscape(r'\begin{Ex}'))
+    doc_task.append(NoEscape(text))
+    doc_task.append('')
+    doc_task.append(NoEscape(r'\end{Ex}'))
+    doc_task.append('')
+    doc_task.append(NoEscape(r'\iffalse'))
+    doc_task.append(f'Автор: {problem["author"]}')
+    doc_task.append(f'Дата: {problem["date"]}')
+    doc_task.append(f'Название: {problem["name"]}')
+    doc_task.append(r'Подсказка: \\')
+    doc_task.append(NoEscape(hint))
+    doc_task.append(NoEscape(r'\fi'))
+    doc_task.append('')
 
     with doc_answer.create(Section(f'(сложность - {problem["difficulty"]})')):
         doc_answer.append(NoEscape(r'\hspace{3ex} Ответ: ' + answer + r' \\'))
