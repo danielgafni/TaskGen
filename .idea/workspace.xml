@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94aad650-0eb1-4ec9-a3bf-2a76c2870c2b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/scripts/TaskGen.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/TaskGen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/2019-07-31/Автматически сгенерированный листочек с линейным возрастанием сложности задач/2019-07-31_Автматически сгенерированный листочек с линейным возрастанием сложности задач_Даниил Гафни_task.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/2019-07-31/Автматически сгенерированный листочек с линейным возрастанием сложности задач/2019-07-31_Автматически сгенерированный листочек с линейным возрастанием сложности задач_Даниил Гафни_task.fdb_latexmk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/2019-07-31/Автматически сгенерированный листочек с линейным возрастанием сложности задач/2019-07-31_Автматически сгенерированный листочек с линейным возрастанием сложности задач_Даниил Гафни_task.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/texstyle/preamble.tex" beforeDir="false" afterPath="$PROJECT_DIR$/texstyle/preamble.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/TaskGen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="166" column="34" lean-forward="true" selection-start-line="166" selection-start-column="34" selection-end-line="166" selection-end-column="34" />
+            <state relative-caret-position="306">
+              <caret line="161" column="26" selection-start-line="161" selection-start-column="26" selection-end-line="161" selection-end-column="26" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -255,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564566578879</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added example">
+      <created>1564579398198</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1564579398198</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -303,7 +305,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added boxes" />
     <MESSAGE value="added load_data_from_csv()" />
-    <option name="LAST_COMMIT_MESSAGE" value="added load_data_from_csv()" />
+    <MESSAGE value="added example" />
+    <option name="LAST_COMMIT_MESSAGE" value="added example" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
@@ -350,8 +353,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/TaskGen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="166" column="34" lean-forward="true" selection-start-line="166" selection-start-column="34" selection-end-line="166" selection-end-column="34" />
+        <state relative-caret-position="306">
+          <caret line="161" column="26" selection-start-line="161" selection-start-column="26" selection-end-line="161" selection-end-column="26" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
