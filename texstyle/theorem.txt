@@ -1,0 +1,2 @@
+\theoremstyle{definition}
+\newtheorem{Ex}{\hspace{-25pt}\fbox{\phantom{123}} Задача}

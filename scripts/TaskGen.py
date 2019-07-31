@@ -31,8 +31,9 @@ class TaskGenerator:
         self.create_directories()
         self.load_data()
         self.create_database()
-        '''self.topics = unique(self.data.topic1.unique() +
-                             self.data.topic2.unique() + self.data.topic3.unique())'''
+        self.topics = unique(np.concatenate([self.data.topic1.unique(),
+                                             self.data.topic2.unique(), self.data.topic3.unique()]))
+        print(f'Data contains topics: {self.topics}')
         print('Task generator ready!')
 
     def load_data(self):
@@ -40,6 +41,29 @@ class TaskGenerator:
             foldername = os.fsdecode(file)
             self.import_problem(f'{self.datapath}\\{foldername}')
         print(f'Data loaded from "{self.datapath}"')
+
+    def load_data_from_csv(self, path, sep=';'):
+        max_n = len(os.listdir(self.datapath))
+        data = pd.read_csv(path, sep=sep)
+        print('Are you sure input data is correct? It must be a .csv file with columns:\n'
+              'author, difficulty, date, text, topic1, topic2, topic3, answer, hint, solution\n'
+              'Not all of them must be filled. The order is not necessary.')
+        print('Are you sure? Y/N')
+        ans = input().lower()
+        if ans != 'y':
+            print('Breaking data import...')
+            return None
+        for index, row in data.iterrows():
+            for colname in data.columns:
+                path = self.datapath + r'\\' + str(max_n + index)
+                if not os.path.exists(path):
+                    os.makedirs(path)
+                file = open(path + r'\\' + str(colname) + '.txt', 'w')
+                file.write(str(row[colname]))
+                file.close()
+
+    def clear_copies(self):
+        pass
 
     def create_database(self):
         self.data.to_csv(self.databasepath + r'/database.csv', sep=';', index=False, encoding='utf-8')
@@ -74,7 +98,7 @@ class TaskGenerator:
         doc_answer.packages.append(Package('geometry', options=['a4paper', 'margin=1.5truecm',
                                                               'top=1.3truecm', 'bottom=1.0truecm']))
 
-        doc_answer.preamble.append(Command('title', r'Ответы к ' + f'{title[0].lower() + title[1:]}'))
+        doc_answer.preamble.append(Command('title', f'{title} - ответы'))
         doc_answer.preamble.append(Command('author', author))
         doc_answer.preamble.append(Command('date', date))
         doc_answer.append(NoEscape(r'\maketitle'))
@@ -105,6 +129,8 @@ class TaskGenerator:
             os.makedirs(self.taskspath)
         if not os.path.exists(self.databasepath):
             os.makedirs(self.databasepath)
+
+########################################################################################################################
 
     def generate_task(self, title='A task', author='', date=None, n=0, topics=None, min_diff=0, max_diff=20,
                       method='random', seed=0, show_solutions=False):
