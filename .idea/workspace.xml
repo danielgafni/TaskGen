@@ -2,226 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94aad650-0eb1-4ec9-a3bf-2a76c2870c2b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comb.csv" beforeDir="false" afterPath="$PROJECT_DIR$/comb.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/0/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/0/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/0/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/0/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/0/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/1/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/1/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/1/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/1/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/1/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/10/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/10/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/10/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/10/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/10/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/11/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/11/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/11/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/11/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/11/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/12/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/12/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/12/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/12/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/12/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/13/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/13/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/13/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/13/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/13/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/14/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/14/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/14/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/14/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/14/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/15/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/15/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/15/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/15/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/15/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/16/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/16/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/16/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/16/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/16/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/17/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/17/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/17/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/17/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/17/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/18/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/18/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/18/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/18/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/18/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/19/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/19/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/19/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/19/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/19/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/2/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/2/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/2/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/2/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/2/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/20/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/20/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/20/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/20/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/20/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/21/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/21/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/21/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/21/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/21/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/22/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/22/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/22/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/22/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/22/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/23/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/23/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/23/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/23/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/23/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/24/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/24/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/24/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/24/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/24/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/25/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/25/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/25/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/25/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/25/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/26/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/26/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/26/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/26/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/26/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/27/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/27/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/27/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/27/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/27/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/28/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/28/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/28/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/28/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/28/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/29/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/29/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/29/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/29/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/29/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/3/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/3/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/3/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/3/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/3/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/30/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/30/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/30/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/30/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/30/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/31/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/31/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/31/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/31/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/31/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/32/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/32/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/32/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/32/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/32/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/33/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/33/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/33/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/33/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/33/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/34/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/34/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/34/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/34/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/34/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/35/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/35/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/35/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/35/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/35/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/36/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/36/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/36/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/36/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/36/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/37/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/37/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/37/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/37/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/37/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/38/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/38/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/38/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/38/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/38/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/39/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/39/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/39/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/39/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/39/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/4/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/4/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/4/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/4/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/4/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/40/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/40/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/40/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/40/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/40/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/41/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/41/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/41/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/41/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/41/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/42/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/42/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/42/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/42/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/42/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/43/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/43/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/43/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/43/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/43/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/44/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/44/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/44/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/44/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/44/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/45/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/45/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/45/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/45/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/45/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/46/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/46/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/46/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/46/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/46/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/47/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/47/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/47/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/47/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/47/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/48/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/48/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/48/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/48/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/48/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/49/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/49/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/49/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/49/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/49/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/5/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/5/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/5/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/5/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/5/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/50/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/50/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/50/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/50/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/50/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/51/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/51/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/51/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/51/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/51/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/52/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/52/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/52/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/52/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/52/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/53/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/53/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/53/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/53/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/53/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/54/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/54/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/54/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/54/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/54/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/55/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/55/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/55/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/55/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/55/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/56/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/56/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/56/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/56/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/56/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/57/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/57/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/57/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/57/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/57/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/58/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/58/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/58/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/58/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/58/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/59/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/59/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/59/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/59/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/59/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/6/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/6/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/6/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/6/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/6/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/60/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/60/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/60/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/60/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/60/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/61/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/61/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/61/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/61/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/61/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/62/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/62/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/62/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/62/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/62/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/63/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/63/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/63/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/63/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/63/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/64/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/64/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/64/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/64/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/64/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/65/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/65/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/65/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/65/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/65/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/66/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/66/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/66/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/66/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/66/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/67/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/67/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/67/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/67/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/67/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/68/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/68/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/68/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/68/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/68/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/69/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/69/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/69/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/69/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/69/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/7/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/7/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/7/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/7/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/7/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/8/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/8/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/8/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/8/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/8/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/9/date.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/9/date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/9/difficulty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/9/difficulty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/9/тема 3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/database.csv" beforeDir="false" afterPath="$PROJECT_DIR$/database/database.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/TaskGen.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/TaskGen.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/2019-07-31/Линейное возрастание сложности/2019-07-31_Линейное возрастание сложности_Даниил Гафни_answers.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/2019-07-31/Линейное возрастание сложности/2019-07-31_Линейное возрастание сложности_Даниил Гафни_answers.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/2019-07-31/Линейное возрастание сложности/2019-07-31_Линейное возрастание сложности_Даниил Гафни_answers.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/2019-07-31/Линейное возрастание сложности/2019-07-31_Линейное возрастание сложности_Даниил Гафни_answers.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/2019-07-31/Линейное возрастание сложности/2019-07-31_Линейное возрастание сложности_Даниил Гафни_task.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/2019-07-31/Линейное возрастание сложности/2019-07-31_Линейное возрастание сложности_Даниил Гафни_task.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/2019-07-31/Линейное возрастание сложности/2019-07-31_Линейное возрастание сложности_Даниил Гафни_task.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/2019-07-31/Линейное возрастание сложности/2019-07-31_Линейное возрастание сложности_Даниил Гафни_task.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/2019-07-31/Автматически сгенерированный листочек с линейным возрастанием сложности задач/2019-07-31_Автматически сгенерированный листочек с линейным возрастанием сложности задач_Даниил Гафни_task.aux" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/2019-07-31/Автматически сгенерированный листочек с линейным возрастанием сложности задач/2019-07-31_Автматически сгенерированный листочек с линейным возрастанием сложности задач_Даниил Гафни_task.fdb_latexmk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/2019-07-31/Автматически сгенерированный листочек с линейным возрастанием сложности задач/2019-07-31_Автматически сгенерированный листочек с линейным возрастанием сложности задач_Даниил Гафни_task.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/texstyle/preamble.tex" beforeDir="false" afterPath="$PROJECT_DIR$/texstyle/preamble.tex" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -234,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/TaskGen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
+            <state relative-caret-position="396">
+              <caret line="166" column="34" lean-forward="true" selection-start-line="166" selection-start-column="34" selection-end-line="166" selection-end-column="34" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -246,8 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+            <state relative-caret-position="234">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
@@ -280,6 +66,7 @@
       <find>add_proble</find>
       <find>pars</find>
       <find>database</find>
+      <find>sample</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -515,7 +302,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added boxes" />
-    <option name="LAST_COMMIT_MESSAGE" value="added boxes" />
+    <MESSAGE value="added load_data_from_csv()" />
+    <option name="LAST_COMMIT_MESSAGE" value="added load_data_from_csv()" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
@@ -555,15 +343,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        <state relative-caret-position="234">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/TaskGen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
+        <state relative-caret-position="396">
+          <caret line="166" column="34" lean-forward="true" selection-start-line="166" selection-start-column="34" selection-end-line="166" selection-end-column="34" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

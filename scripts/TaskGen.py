@@ -1,4 +1,5 @@
 import os
+import time as t
 import random
 import string
 from distutils.dir_util import copy_tree
@@ -75,12 +76,15 @@ class TaskGenerator:
         doc_task.packages.append(Package('inputenc', options=['utf8']))
         doc_task.packages.append(Package('babel', options=['english', 'russian']))
         doc_task.packages.append(Package('mathtext'))
-        doc_task.packages.append(Package('geometry', options=['a4paper', 'margin=1.5truecm',
-                                                                'top=1.3truecm', 'bottom=1.0truecm']))
+        doc_task.packages.append(Package('geometry',
+                                         options=['a4paper', 'margin=1.5truecm', 'top=1.3truecm', 'bottom=1.0truecm']))
+        doc_task.packages.append(Package('fontenc', options=['T2A']))
         doc_task.packages.append(Package('amsmath'))
         doc_task.packages.append(Package('amsthm'))
         doc_task.packages.append(Package('amsfonts'))
         doc_task.packages.append(Package('mathabx'))
+        doc_task.packages.append(Package('graphicx'))
+        doc_task.packages.append(Package('tabularx'))
 
         doc_task.preamble.append(Command('theoremstyle', 'definition'))
         #doc_task.append(NoEscape(r'\theoremstyle{definition}'))
@@ -92,11 +96,19 @@ class TaskGenerator:
         doc_task.preamble.append(Command('date', date))
         doc_task.append(NoEscape(r'\maketitle'))
 
-        doc_answer = Document(documentclass='article', document_options=['a4paper', '10pt'], inputenc='utf8')
+        doc_answer = Document(documentclass='article', document_options=['a4paper', '11pt'], inputenc='utf8')
         doc_answer.packages.append(Package('inputenc', options=['utf8']))
         doc_answer.packages.append(Package('babel', options=['english', 'russian']))
-        doc_answer.packages.append(Package('geometry', options=['a4paper', 'margin=1.5truecm',
-                                                              'top=1.3truecm', 'bottom=1.0truecm']))
+        doc_answer.packages.append(Package('mathtext'))
+        doc_answer.packages.append(Package('geometry',
+                                         options=['a4paper', 'margin=1.5truecm', 'top=1.3truecm', 'bottom=1.0truecm']))
+        doc_answer.packages.append(Package('fontenc', options=['T2A']))
+        doc_answer.packages.append(Package('amsmath'))
+        doc_answer.packages.append(Package('amsthm'))
+        doc_answer.packages.append(Package('amsfonts'))
+        doc_answer.packages.append(Package('mathabx'))
+        doc_answer.packages.append(Package('graphicx'))
+        doc_answer.packages.append(Package('tabularx'))
 
         doc_answer.preamble.append(Command('title', f'{title} - ответы'))
         doc_answer.preamble.append(Command('author', author))
@@ -141,11 +153,16 @@ class TaskGenerator:
         :param date: date to be print in the task
         :param n: number of problems in the task
         :param topics: a list of topics for the task
-        :param difficulty: list [min, max] difficulties
-        :param method:
-        :param seed: random seed
+        :param min_diff: the low border of difficulty
+        :param min_diff: the high border of difficulty
+        :param method: the method of generation
+        :param seed: use 'random' to get random problems. Use a value to get the same problems.
         :param show_solutions: True to show solutions in the answers document or False to not
         """
+        if seed == 'random':
+            seed = int(t.time())
+            print(f'Using random seed {seed}')
+        np.random.seed(seed)
         if date is None:
             date = str(self.today)
         if topics is None:
@@ -156,7 +173,7 @@ class TaskGenerator:
         data_for_generation = filter_topics(self.data, topics)
 
         data_for_generation = filter_difficulty(data_for_generation, min_diff=min_diff,
-                                     max_diff=max_diff, method=method, n=n)
+                                                max_diff=max_diff, method=method, n=n, seed=seed)
 
         for index, problem in data_for_generation.iterrows():
             add_problem_to_task(doc_task=doc_task, doc_answer=doc_answer, problem=problem,
@@ -267,7 +284,7 @@ def filter_topics(data, topics):
     return data_for_output
 
 
-def filter_difficulty(data, min_diff=1, max_diff=20, method='random', n=1):
+def filter_difficulty(data, min_diff=1, max_diff=20, method='random', n=1, seed=0):
     print(f'Filtering difficulty from {min_diff} to {max_diff} by {method} method...')
     data_sorted = data.sort_values('difficulty')
     if n > data_sorted.shape[0]:
@@ -276,7 +293,7 @@ def filter_difficulty(data, min_diff=1, max_diff=20, method='random', n=1):
 
     data_for_output = pd.DataFrame(columns=data.columns)
     if method == 'random':
-        data_for_output = data_sorted.sample(n=n)
+        data_for_output = data_sorted.sample(n=n, random_state=seed)
 
     if method == 'linear_low':
         problems_by_difficulty = []
