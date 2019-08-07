@@ -5,7 +5,7 @@ from TaskGen import TaskGenerator, problem_directory_parser
 gen = TaskGenerator()
 
 '''Загрузка задач из таблицы. Выполнять только один раз.'''
-# gen.load_data_from_csv(r'D:\Files\Programming\TaskGen\comb.csv')
+#  gen.load_data_from_csv(r'D:\Files\Programming\TaskGen\comb.csv')
 
 '''Генерация листочка'''
 gen.generate_task(title='Случайнай комбинаторика2',

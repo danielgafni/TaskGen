@@ -1,13 +1,152 @@
 import os
 import time as t
-import random
-import string
-from distutils.dir_util import copy_tree
-import numpy as np
 import pandas as pd
+import numpy as np
 from datetime import date
 from pylatex import Document, Package, Command, Section
 from pylatex.utils import NoEscape
+
+
+def add_problem_to_task(doc_task, doc_answer, problem, show_solutions=False):
+    path = problem['path']
+    text_file = open(path + r'\text.txt', 'r')
+    text = text_file.read()
+    text_file.close()
+    if os.path.exists(path + r'\answer.txt'):
+        answer_file = open(path + r'\answer.txt', 'r')
+        answer = answer_file.read()
+        answer_file.close()
+    else:
+        answer = 'No answer'
+    solution_file = open(path + r'\solution.txt', 'r')
+    solution = solution_file.read()
+    solution_file.close()
+    hint_file = open(path + r'\hint.txt', 'r')
+    hint = hint_file.read()
+
+    doc_task.append(NoEscape(r'\begin{Ex}'))
+    doc_task.append(NoEscape(text))
+    doc_task.append('')
+    doc_task.append(NoEscape(r'\end{Ex}'))
+    doc_task.append('')
+    doc_task.append(NoEscape(r'\iffalse'))
+    doc_task.append(f'Автор: {problem["author"]}')
+    doc_task.append(f'Дата: {problem["date"]}')
+    doc_task.append(f'Название: {problem["name"]}')
+    doc_task.append(r'Подсказка: \\')
+    doc_task.append(NoEscape(hint))
+    doc_task.append(NoEscape(r'\fi'))
+    doc_task.append('')
+
+    with doc_answer.create(Section(f'(сложность - {problem["difficulty"]})')):
+        doc_answer.append(NoEscape(r'\hspace{3ex} Ответ: ' + answer + r' \\'))
+        doc_answer.append('')
+        if not show_solutions:
+            doc_answer.append(NoEscape(r'\iffalse'))
+            doc_answer.append(NoEscape(r'\hspace*{3ex} Решение: \\'))
+            doc_answer.append(NoEscape(solution))
+            doc_answer.append(NoEscape(r'\fi'))
+        else:
+            doc_answer.append(NoEscape(r'\hspace*{3ex} Решение: \\'))
+            doc_answer.append(NoEscape(solution))
+
+
+def problem_directory_parser(path):
+    """
+    :param path: path to the problem directory.
+    :return: problem properties
+    """
+    name, author, date, topics, difficulty = None, None, None,[] , None
+    if os.path.isfile(path + r'\name.txt'):
+        file = open(path + r'\name.txt', 'r')
+        name = file.read()
+        file.close()
+    if os.path.exists(path + r'\author.txt'):
+        file = open(path + r'\author.txt', 'r')
+        author = file.read()
+        file.close()
+    if os.path.exists(path + r'\date.txt'):
+        file = open(path + r'\date.txt', 'r')
+        date = file.read()
+        file.close()
+    if os.path.exists(path + r'\topics.txt'):
+        file = open(path + r'\topics.txt', 'r')
+        topics = file.readlines()
+        file.close()
+
+    return name, author, date, topics, difficulty
+
+
+def filter_topics(data, given_topics=None):
+    if given_topics is None:
+        given_topics = ['разное']
+    else:
+        given_topics = list(map(lambda x: x.lower(), given_topics))
+    print(f'Filtering topics {given_topics}...')
+    data_for_output = pd.DataFrame(columns=data.columns)
+    for index, problem in data.iterrows():
+        for topic in given_topics:
+            if topic in problem['topics']:
+                data_for_output = data_for_output.append(problem)
+                break
+    return data_for_output
+
+
+def filter_difficulty(data, min_diff=1, max_diff=20, method='random', n=1, seed=0):
+    print(f'Filtering difficulty from {min_diff} to {max_diff} by {method} method...')
+    data_sorted = data.sort_values('difficulty')
+    if n > data_sorted.shape[0]:
+        print(f'Given filters only leave {data_sorted.shape[0]} problems. Returning them all...')
+        return data_sorted
+
+    data_for_output = pd.DataFrame(columns=data.columns)
+    if method == 'random':
+        data_for_output = data_sorted.sample(n=n, random_state=seed)
+
+    if method == 'linear_low':
+        problems_by_difficulty = []
+        for d in range(min_diff, max_diff + 1):
+            problems_by_difficulty.append(data_sorted[data_sorted['difficulty'] == d])
+        numbers = [0] * len(problems_by_difficulty)
+        i = 0
+        d = 0
+        while i < n:
+            if problems_by_difficulty[d % (len(problems_by_difficulty)-1)].shape[0] > numbers[d % (len(problems_by_difficulty)-1)]:
+                data_for_output = data_for_output.append(problems_by_difficulty[d % (len(problems_by_difficulty)-1)].iloc[numbers[d % (len(problems_by_difficulty)-1)], :])
+                numbers[d % len(problems_by_difficulty)] += 1
+                i += 1
+                d += 1
+            else:
+                d += 1
+    if method == 'constant':
+        data_for_output = data_sorted[data_sorted['difficulty'] == min_diff]
+
+    return data_for_output.sort_values('difficulty')
+
+
+def unique(a):
+    uniques = []
+    for element in a:
+        if element not in uniques:
+            uniques.append(element)
+    return uniques
+
+
+class Problem:
+    def __init__(self, path=None, name=None, author=None, date=None, difficulty=None, topics=['разное'],
+                 text='Тест', answer='Ответ', hint='Подсказка', solution='Решение'):
+        self.path = path
+        self.name = name
+        self.author = author
+        self.date = date
+        self.difficulty = difficulty
+        self.topics = topics
+        self.text = text
+        self.hint = hint
+        self.solution = solution
+        colnames = ['name', 'path', 'author', 'date', 'difficulty', 'topics']
+        self.df = pd.DataFrame([[name, path, author, date, difficulty, topics]],
+                                  columns = colnames)
 
 
 class TaskGenerator:
@@ -26,28 +165,42 @@ class TaskGenerator:
         self.taskspath = self.path + r'\tasks'
         self.databasepath = self.path + r'\database'
         self.datapath = self.path + '\\data'
-        self.colnames = ['name', 'path', 'author', 'date', 'topic1', 'topic2', 'topic3', 'difficulty']
+        self.colnames = ['name', 'path', 'author', 'date', 'difficulty', 'topics']
         self.data = pd.DataFrame(columns=self.colnames)
 
         self.create_directories()
         self.load_data()
         self.create_database()
-        self.topics = unique(np.concatenate([self.data.topic1.unique(),
-                                             self.data.topic2.unique(), self.data.topic3.unique()]))
+        self.topics = []
+        for index, problem in self.data.iterrows():
+            self.topics = list(set(self.topics + problem['topics']))
         print(f'Data contains topics: {self.topics}')
         print('Task generator ready!')
+
+    def load_problem(self, path):
+        file_properties = open(f'{path}//properties.txt', 'r')
+        file_topics = open(f'{path}//topics.txt')
+        topics = file_topics.read().replace(' ', '').replace('\n', '').lower().split(',')
+        name, author, date, difficulty = '', '', None, None
+        lines = file_properties.readlines()
+        name = lines[0]
+        author = lines[1]
+        date = int(lines[2])
+        difficulty = int(lines[3])
+        problem = pd.DataFrame([[name, path, author, date, difficulty, topics]], columns=self.colnames)
+        self.data = self.data.append(problem)
+        #  list(map(lambda x: x.replace('\n', ''), file_test.readlines())))
 
     def load_data(self):
         for file in os.listdir(self.datapath):
             foldername = os.fsdecode(file)
-            self.import_problem(f'{self.datapath}\\{foldername}')
+            self.load_problem(f'{self.datapath}\\{foldername}')
         print(f'Data loaded from "{self.datapath}"')
 
     def load_data_from_csv(self, path, sep=';'):
-        max_n = len(os.listdir(self.datapath))
         data = pd.read_csv(path, sep=sep)
         print('Are you sure input data is correct? It must be a .csv file with columns:\n'
-              'author, difficulty, date, text, topic1, topic2, topic3, answer, hint, solution\n'
+              'author, difficulty, date, text, topics, answer, hint, solution\n'
               'Not all of them must be filled. The order is not necessary.')
         print('Are you sure? Y/N')
         ans = input().lower()
@@ -55,13 +208,29 @@ class TaskGenerator:
             print('Breaking data import...')
             return None
         for index, row in data.iterrows():
-            for colname in data.columns:
-                path = self.datapath + r'\\' + str(max_n + index)
-                if not os.path.exists(path):
-                    os.makedirs(path)
-                file = open(path + r'\\' + str(colname) + '.txt', 'w')
-                file.write(str(row[colname]))
-                file.close()
+            path = self.datapath + r'\\' + str(len(os.listdir(self.datapath)) + 1)
+            if not os.path.exists(path):
+                os.makedirs(path)
+            file_properties = open(path + r'\\properties.txt', 'w')
+            for colname in self.colnames:
+                if colname in data.columns:
+                    if not np.isnan(row[colname]):
+                        file_properties.write(row[colname + '\n'])
+                else:
+                    file_properties.write('\n')
+            file_properties.close()
+            file_text = open(path + r'\\text.txt', 'w')
+            file_text.write(row['text'])
+            file_text.close()
+            file_answer = open(path + r'\\answer.txt', 'w')
+            file_answer.write(row['answer'])
+            file_answer.close()
+            file_hint = open(path + r'\\hint.txt', 'w')
+            file_hint.write(row['hint'])
+            file_hint.close()
+            file_solution = open(path + r'\\solution.txt', 'w')
+            file_solution.write(row['solution'])
+            file_solution.close()
 
     def clear_copies(self):
         pass
@@ -116,20 +285,6 @@ class TaskGenerator:
         doc_answer.append(NoEscape(r'\maketitle'))
 
         return doc_task, doc_answer
-
-    def import_problem(self, path):
-        """
-        Method to add a problem to the database.
-        The problem folder can (but not must) contain:
-            text.txt, solution.txt, answer.txt, hint.txt, name.txt, author.txt, date.txt,
-            topic1.txt, topic2.txt, topic3.txt, difficulty.txt
-        :param path: the path to the problem directory.
-        """
-        #  Loading problem properties
-        name, author, date, topic1, topic2, topic3, difficulty = problem_directory_parser(path)
-        #  Appending problem to DataFrame
-        problem = pd.DataFrame([[name, path, author, date, topic1, topic2, topic3, difficulty]], columns=self.colnames)
-        self.data = self.data.append(problem)
 
     def create_directories(self):
         """
@@ -189,136 +344,3 @@ class TaskGenerator:
         doc_task.generate_pdf(f'{path}\\{date}_{title}_{author}_task', clean_tex=False, clean=True)
         doc_answer.generate_pdf(f'{path}\\{date}_{title}_{author}_answers', clean_tex=False, clean=True)
         print(f'Generation complete! You can find your task at "{path}"')
-
-
-def add_problem_to_task(doc_task, doc_answer, problem, show_solutions=False):
-    path = problem['path']
-    text_file = open(path + r'\text.txt', 'r')
-    text = text_file.read()
-    text_file.close()
-    if os.path.exists(path + r'\answer.txt'):
-        answer_file = open(path + r'\answer.txt', 'r')
-        answer = answer_file.read()
-        answer_file.close()
-    else:
-        answer = 'No answer'
-    solution_file = open(path + r'\solution.txt', 'r')
-    solution = solution_file.read()
-    solution_file.close()
-    hint_file = open(path + r'\hint.txt', 'r')
-    hint = hint_file.read()
-
-    doc_task.append(NoEscape(r'\begin{Ex}'))
-    doc_task.append(NoEscape(text))
-    doc_task.append('')
-    doc_task.append(NoEscape(r'\end{Ex}'))
-    doc_task.append('')
-    doc_task.append(NoEscape(r'\iffalse'))
-    doc_task.append(f'Автор: {problem["author"]}')
-    doc_task.append(f'Дата: {problem["date"]}')
-    doc_task.append(f'Название: {problem["name"]}')
-    doc_task.append(r'Подсказка: \\')
-    doc_task.append(NoEscape(hint))
-    doc_task.append(NoEscape(r'\fi'))
-    doc_task.append('')
-
-    with doc_answer.create(Section(f'(сложность - {problem["difficulty"]})')):
-        doc_answer.append(NoEscape(r'\hspace{3ex} Ответ: ' + answer + r' \\'))
-        doc_answer.append('')
-        if not show_solutions:
-            doc_answer.append(NoEscape(r'\iffalse'))
-            doc_answer.append(NoEscape(r'\hspace*{3ex} Решение: \\'))
-            doc_answer.append(NoEscape(solution))
-            doc_answer.append(NoEscape(r'\fi'))
-        else:
-            doc_answer.append(NoEscape(r'\hspace*{3ex} Решение: \\'))
-            doc_answer.append(NoEscape(solution))
-
-
-def problem_directory_parser(path):
-    """
-    :param path: path to the problem directory.
-    :return: problem properties
-    """
-    name, author, date, topic1, topic2, topic3, difficulty = None, None, None, '', '', '', None
-    if os.path.isfile(path + r'\name.txt'):
-        file = open(path + r'\name.txt', 'r')
-        name = file.read()
-        file.close()
-    if os.path.exists(path + r'\author.txt'):
-        file = open(path + r'\author.txt', 'r')
-        author = file.read()
-        file.close()
-    if os.path.exists(path + r'\date.txt'):
-        file = open(path + r'\date.txt', 'r')
-        date = file.read()
-        file.close()
-    if os.path.exists(path + r'\topic1.txt'):
-        file = open(path + r'\topic1.txt', 'r')
-        topic1 = file.read()
-        file.close()
-    if os.path.exists(path + r'\topic2.txt'):
-        file = open(path + r'\topic2.txt', 'r')
-        topic2 = file.read()
-        file.close()
-    if os.path.exists(path + r'\topic3.txt'):
-        file = open(path + r'\topic3.txt', 'r')
-        topic3 = file.read()
-        file.close()
-    if os.path.exists(path + r'\difficulty.txt'):
-        file = open(path + r'\difficulty.txt', 'r')
-        difficulty = int(file.read())
-        file.close()
-
-    return name, author, date, topic1, topic2, topic3, difficulty
-
-
-def filter_topics(data, topics):
-    print(f'Filtering topics {topics}...')
-    data_for_output = pd.DataFrame(columns=data.columns)
-    for index, problem in data.iterrows():
-        for topic in topics:
-            if topic in [problem['topic1'], problem['topic2'], problem['topic3']]:
-                data_for_output = data_for_output.append(problem)
-                break
-    return data_for_output
-
-
-def filter_difficulty(data, min_diff=1, max_diff=20, method='random', n=1, seed=0):
-    print(f'Filtering difficulty from {min_diff} to {max_diff} by {method} method...')
-    data_sorted = data.sort_values('difficulty')
-    if n > data_sorted.shape[0]:
-        print(f'Given filters only leave {data_sorted.shape[0]} problems. Returning them all...')
-        return data_sorted
-
-    data_for_output = pd.DataFrame(columns=data.columns)
-    if method == 'random':
-        data_for_output = data_sorted.sample(n=n, random_state=seed)
-
-    if method == 'linear_low':
-        problems_by_difficulty = []
-        for d in range(min_diff, max_diff + 1):
-            problems_by_difficulty.append(data_sorted[data_sorted['difficulty'] == d])
-        numbers = [0] * len(problems_by_difficulty)
-        i = 0
-        d = 0
-        while i < n:
-            if problems_by_difficulty[d % (len(problems_by_difficulty)-1)].shape[0] > numbers[d % (len(problems_by_difficulty)-1)]:
-                data_for_output = data_for_output.append(problems_by_difficulty[d % (len(problems_by_difficulty)-1)].iloc[numbers[d % (len(problems_by_difficulty)-1)], :])
-                numbers[d % len(problems_by_difficulty)] += 1
-                i += 1
-                d += 1
-            else:
-                d += 1
-    if method == 'constant':
-        data_for_output = data_sorted[data_sorted['difficulty'] == min_diff]
-
-    return data_for_output.sort_values('difficulty')
-
-
-def unique(a):
-    uniques = []
-    for element in a:
-        if element not in uniques:
-            uniques.append(element)
-    return uniques
