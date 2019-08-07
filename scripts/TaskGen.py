@@ -92,7 +92,7 @@ def filter_topics(data, given_topics=None):
     return data_for_output
 
 
-def filter_difficulty(data, min_diff=1, max_diff=20, method='random', n=1, seed=0):
+def filter_difficulty(data, min_diff=0, max_diff=120, list_of_difficulties=None, method='random', n=1, seed=0):
     print(f'Filtering difficulty from {min_diff} to {max_diff} by {method} method...')
     data_sorted = data.sort_values('difficulty')
     if n > data_sorted.shape[0]:
@@ -111,15 +111,38 @@ def filter_difficulty(data, min_diff=1, max_diff=20, method='random', n=1, seed=
         i = 0
         d = 0
         while i < n:
-            if problems_by_difficulty[d % (len(problems_by_difficulty)-1)].shape[0] > numbers[d % (len(problems_by_difficulty)-1)]:
-                data_for_output = data_for_output.append(problems_by_difficulty[d % (len(problems_by_difficulty)-1)].iloc[numbers[d % (len(problems_by_difficulty)-1)], :])
+            if problems_by_difficulty[d % (len(problems_by_difficulty)-1)].shape[0] >\
+                    numbers[d % (len(problems_by_difficulty)-1)]:
+                data_for_output = data_for_output.append(problems_by_difficulty[d % (len(problems_by_difficulty)-1)].
+                                                         iloc[numbers[d % (len(problems_by_difficulty)-1)], :])
                 numbers[d % len(problems_by_difficulty)] += 1
                 i += 1
                 d += 1
             else:
                 d += 1
-    if method == 'constant':
-        data_for_output = data_sorted[data_sorted['difficulty'] == min_diff]
+
+    if method == 'list_low':
+        problems_by_difficulty = []
+        a = 0
+        for d in list_of_difficulties:
+            problems_by_difficulty.append(data_sorted[data_sorted['difficulty'] == d])
+        numbers = [0] * len(problems_by_difficulty)
+        i = 0
+        d = 0
+        while i < n:
+            a +=1
+            if a == 100:
+                break
+            if problems_by_difficulty[d % (len(problems_by_difficulty) - 1)].shape[0] >\
+                    numbers[d % (len(problems_by_difficulty) - 1)]:
+                data_for_output = data_for_output.append(
+                    problems_by_difficulty[d % (len(problems_by_difficulty) - 1)].iloc[
+                    numbers[d % (len(problems_by_difficulty) - 1)], :])
+                numbers[d % len(problems_by_difficulty)] += 1
+                i += 1
+                d += 1
+            else:
+                d += 1
 
     return data_for_output.sort_values('difficulty')
 
@@ -179,7 +202,7 @@ class TaskGenerator:
 
     def load_problem(self, path):
         file_properties = open(f'{path}//properties.txt', 'r')
-        file_topics = open(f'{path}//topics.txt')
+        file_topics = open(f'{path}\\topics.txt')
         topics = file_topics.read().replace(' ', '').replace('\n', '').lower().split(',')
         name, author, date, difficulty = '', '', None, None
         lines = file_properties.readlines()
@@ -215,7 +238,7 @@ class TaskGenerator:
             for colname in self.colnames:
                 if colname in data.columns:
                     if not np.isnan(row[colname]):
-                        file_properties.write(row[colname + '\n'])
+                        file_properties.write(row[colname] + '\n')
                 else:
                     file_properties.write('\n')
             file_properties.close()
@@ -231,6 +254,8 @@ class TaskGenerator:
             file_solution = open(path + r'\\solution.txt', 'w')
             file_solution.write(row['solution'])
             file_solution.close()
+
+            #ADD TOPICS
 
     def clear_copies(self):
         pass
@@ -300,7 +325,7 @@ class TaskGenerator:
 ########################################################################################################################
 
     def generate_task(self, title='A task', author='', date=None, n=0, topics=None, min_diff=0, max_diff=20,
-                      method='random', seed=0, show_solutions=False):
+                      list_of_difficulties=None, method='random', seed=0, show_solutions=False):
         """
 
         :param title: title of the task
@@ -309,8 +334,8 @@ class TaskGenerator:
         :param n: number of problems in the task
         :param topics: a list of topics for the task
         :param min_diff: the low border of difficulty
-        :param min_diff: the high border of difficulty
-        :param method: the method of generation
+        :param max_diff: the high border of difficulty
+        :param method: the method of generation: 'random', 'linear_low', 'list_low'
         :param seed: use 'random' to get random problems. Use a value to get the same problems.
         :param show_solutions: True to show solutions in the answers document or False to not
         """
@@ -328,6 +353,7 @@ class TaskGenerator:
         data_for_generation = filter_topics(self.data, topics)
 
         data_for_generation = filter_difficulty(data_for_generation, min_diff=min_diff,
+                                                list_of_difficulties=list_of_difficulties,
                                                 max_diff=max_diff, method=method, n=n, seed=seed)
 
         for index, problem in data_for_generation.iterrows():
