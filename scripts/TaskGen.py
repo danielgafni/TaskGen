@@ -217,13 +217,15 @@ class TaskGenerator:
         problem = pd.DataFrame([[name, path, author, date, difficulty, topics]], columns=self.colnames)
         self.data = self.data.append(problem)
 
-    def load_data(self):
+    def load_data(self, folderpath=None):
+        if folderpath is None:
+            folderpath = self.datapath
+
         self.data = pd.DataFrame(columns=self.colnames)
-        for file in os.listdir(self.datapath):
+        for file in os.listdir(folderpath):
             foldername = os.fsdecode(file)
-            self.load_problem(f'{self.datapath}\\{foldername}')
-        print(f'Data loaded from "{self.datapath}"')
-        self.show_topics()
+            self.load_problem(f'{folderpath}\\{foldername}')
+        print(f'Data loaded from "{folderpath}"')
 
     def load_data_from_csv(self, path, sep=';'):
         data = pd.read_csv(path, sep=sep)
@@ -283,6 +285,7 @@ class TaskGenerator:
             file_solution.close()
 
         self.load_data()
+        self.show_topics()
 
     def clear_copies(self):
         pass
@@ -351,10 +354,11 @@ class TaskGenerator:
 
 ########################################################################################################################
 
-    def generate_task(self, title='A task', author='', date=None, n=0, topics=None, min_diff=0, max_diff=20,
+    def generate_task(self, folderpath=None, title='A task', author='', date=None, n=0, topics=None, min_diff=0, max_diff=20,
                       list_of_difficulties=None, method='random', seed=0, show_solutions=False):
         """
 
+        :param folderpath: path to the data folder.
         :param title: title of the document.
         :param author: author of the document.
         :param date: date to be displayed in the document. Leave empty for today's date.
@@ -378,6 +382,12 @@ class TaskGenerator:
             date = str(self.today)
         if topics is None:
             topics = ['разное']
+        if folderpath is None:
+            folderpath = self.datapath
+        else:
+            print('Loading data from external folder...')
+            self.load_data(folderpath=folderpath)
+            self.show_topics()
 
         doc_task, doc_answer = self.create_docs(title=title, author=author, date=date)
 

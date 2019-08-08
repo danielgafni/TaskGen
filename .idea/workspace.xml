@@ -15,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/TaskGen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="370" column="94" selection-start-line="370" selection-start-column="94" selection-end-line="370" selection-end-column="94" />
+            <state relative-caret-position="162">
+              <caret line="390" lean-forward="true" selection-start-line="390" selection-end-line="390" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -402,8 +402,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/TaskGen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="370" column="94" selection-start-line="370" selection-start-column="94" selection-end-line="370" selection-end-column="94" />
+        <state relative-caret-position="162">
+          <caret line="390" lean-forward="true" selection-start-line="390" selection-end-line="390" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

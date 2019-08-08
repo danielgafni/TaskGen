@@ -1,1 +1,0 @@
-”простите выражени€: а) $\frac{10 !}{n \cdot(n+1)} \cdot  \frac{(n+1) !}{8 !}$ б)$n ! \cdot\left(\frac{1}{n !}-\frac{1}{(n+1) !}\right)$
