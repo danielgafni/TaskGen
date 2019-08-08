@@ -5,7 +5,8 @@
 **Описание параметров генерации**
 
 ```python
-generate_task(self, title='A task', author='', date=None, n=0, topics=None, min_diff=0, max_diff=20, list_of_difficulties=None, method='random', seed=0, show_solutions=False):
+generate_task(self, title='A task', author='', date=None, n=0, topics=None, min_diff=0, max_diff=20,
+              list_of_difficulties=None, method='random', seed=0, show_solutions=False):
         """
 
         :param title: title of the document.
