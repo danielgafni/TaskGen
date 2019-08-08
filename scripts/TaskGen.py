@@ -209,7 +209,6 @@ class TaskGenerator:
         file_properties = open(f'{path}//properties.txt', 'r')
         file_topics = open(f'{path}\\topics.txt')
         topics = file_topics.read().split(',')
-        name, author, date, difficulty = '', '', None, None
         properties = file_properties.read().split(',')
         name = properties[0]
         date = int(properties[1])
@@ -356,18 +355,21 @@ class TaskGenerator:
                       list_of_difficulties=None, method='random', seed=0, show_solutions=False):
         """
 
-        :param title: title of the task
-        :param author: author of the task
-        :param date: date to be print in the task
-        :param n: number of problems in the task
-        :param topics: a list of topics for the task
-        :param min_diff: the low border of difficulty
-        :param max_diff: the high border of difficulty
-        :param method: the method of generation: 'random', 'linear_low', 'list_low'
-        :param seed: use 'random' to get random problems. Use a value to get the same problems.
-        :param show_solutions: True to show solutions in the answers document or False to not
+        :param title: title of the document.
+        :param author: author of the document.
+        :param date: date to be displayed in the document. Leave empty for today's date.
+        :param n: number of problems in the document.
+        :param topics: topics of the problems in the document.
+        :param min_diff: minimal difficulty of the problems.
+        :param max_diff: maximum difficulty of the problems.
+        :param list_of_difficulties: a list of difficulties for 'list_low' method.
+        :param method:
+                'random' - random difficulties;
+                'linear_low' - a linear increase of difficulty of the problems. More easy problems;
+                'list_low' - problems will have difficulties, specified in the list. More easy problems.
+        :param seed: the seed for random. 0 by default, use 'random' for random seed.
+        :param show_solutions: True to show solutions in the answers file; False to hide them.
         """
-
         if seed == 'random':
             seed = int(t.time())
             print(f'Using random seed {seed}')
