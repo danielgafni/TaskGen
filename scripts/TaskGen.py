@@ -9,7 +9,8 @@ from pylatex.utils import NoEscape
 
 def add_problem_to_task(doc_task, doc_answer, problem, show_solutions=False):
     path = problem['path']
-    text_file = open(path + r'\text.txt', 'r')
+    print(f'Adding problem to task from {path}')
+    text_file = open(path + r'\text.txt', 'r') #encoding='utf-8'
     text = text_file.read()
     text_file.close()
     if os.path.exists(path + r'\answer.txt'):
@@ -194,31 +195,36 @@ class TaskGenerator:
         self.create_directories()
         self.load_data()
         self.create_database()
+        print(f'Data contains topics: {self.topics}')
+        print('Task generator ready!')
+
+    def show_topics(self):
         self.topics = []
         for index, problem in self.data.iterrows():
             self.topics = list(set(self.topics + problem['topics']))
         print(f'Data contains topics: {self.topics}')
-        print('Task generator ready!')
 
     def load_problem(self, path):
+        print(f'Loading problem from {path}')
         file_properties = open(f'{path}//properties.txt', 'r')
         file_topics = open(f'{path}\\topics.txt')
-        topics = file_topics.read().replace(' ', '').replace('\n', '').lower().split(',')
+        topics = file_topics.read().split(',')
         name, author, date, difficulty = '', '', None, None
-        lines = file_properties.readlines()
-        name = lines[0]
-        author = lines[1]
-        date = int(lines[2])
-        difficulty = int(lines[3])
+        properties = file_properties.read().split(',')
+        name = properties[0]
+        date = int(properties[1])
+        author = properties[2]
+        difficulty = int(properties[3])
         problem = pd.DataFrame([[name, path, author, date, difficulty, topics]], columns=self.colnames)
         self.data = self.data.append(problem)
-        #  list(map(lambda x: x.replace('\n', ''), file_test.readlines())))
 
     def load_data(self):
+        self.data = pd.DataFrame(columns=self.colnames)
         for file in os.listdir(self.datapath):
             foldername = os.fsdecode(file)
             self.load_problem(f'{self.datapath}\\{foldername}')
         print(f'Data loaded from "{self.datapath}"')
+        self.show_topics()
 
     def load_data_from_csv(self, path, sep=';'):
         data = pd.read_csv(path, sep=sep)
@@ -234,28 +240,50 @@ class TaskGenerator:
             path = self.datapath + r'\\' + str(len(os.listdir(self.datapath)) + 1)
             if not os.path.exists(path):
                 os.makedirs(path)
+
+            print(f'loading to data problem with index {index}')
+
             file_properties = open(path + r'\\properties.txt', 'w')
-            for colname in self.colnames:
-                if colname in data.columns:
-                    if not np.isnan(row[colname]):
-                        file_properties.write(row[colname] + '\n')
-                else:
-                    file_properties.write('\n')
+
+            if 'name' in data.columns:
+                file_properties.write(str(row['name']) + ',')
+            else:
+                file_properties.write(',')
+            if 'date' in data.columns:
+                file_properties.write(str(int(row['date'])) + ',')
+            else:
+                file_properties.write(',')
+            if 'author' in data.columns:
+                file_properties.write(str(row['author']) + ',')
+            else:
+                file_properties.write(',')
+            if 'difficulty' in data.columns:
+                file_properties.write(str(int(row['difficulty'])))
+
             file_properties.close()
+
+            file_topics = open(path + r'\\topics.txt', 'w')
+            topics = row['topics'].replace(' ', '').split(',')
+            for topic in topics[:-1]:
+                file_topics.write(topic + ',')
+            file_topics.write(topics[-1])
+            file_topics.close()
+
             file_text = open(path + r'\\text.txt', 'w')
-            file_text.write(row['text'])
+            file_text.write(str(row['text']))
             file_text.close()
             file_answer = open(path + r'\\answer.txt', 'w')
-            file_answer.write(row['answer'])
+            file_answer.write(str(row['answer']))
             file_answer.close()
             file_hint = open(path + r'\\hint.txt', 'w')
-            file_hint.write(row['hint'])
+            file_hint.write(str(row['hint']))
             file_hint.close()
             file_solution = open(path + r'\\solution.txt', 'w')
-            file_solution.write(row['solution'])
+
+            file_solution.write(str(row['solution']))
             file_solution.close()
 
-            #ADD TOPICS
+        self.load_data()
 
     def clear_copies(self):
         pass
@@ -339,6 +367,7 @@ class TaskGenerator:
         :param seed: use 'random' to get random problems. Use a value to get the same problems.
         :param show_solutions: True to show solutions in the answers document or False to not
         """
+
         if seed == 'random':
             seed = int(t.time())
             print(f'Using random seed {seed}')
